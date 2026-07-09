@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação | 55º Encontro Anual IEDE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f7f7f7;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo img {
+            max-height: 60px;
+            height: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #C8464B;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #C8464B;
+            color: white;
+            padding: 0.7rem 1rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            background: #a83539;
+            color: white;
+        }
+
+        main {
+            padding: 2rem 1rem 4rem;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #C8464B;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 12px;
+            display: block;
+            margin-left: auto;
+        }
+
+        .pill {
+            display: inline-block;
+            background: #fff;
+            color: #C8464B;
+            border: 1px solid #f0c8cb;
+            border-radius: 999px;
+            padding: 0.45rem 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            color: #C8464B;
+            margin-bottom: 1.2rem;
+        }
+
+        .section p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.2rem;
+        }
+
+        .day-card {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 1.2rem;
+            background: linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
+        }
+
+        .day-card h3 {
+            color: #333;
+            margin-bottom: 0.6rem;
+        }
+
+        .session {
+            padding: 0.8rem 0;
+            border-top: 1px solid #f1f1f1;
+        }
+
+        .session:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .time {
+            display: inline-block;
+            font-weight: 700;
+            color: #C8464B;
+            margin-bottom: 0.25rem;
+        }
+
+        .session strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .session span {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .info-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .info-card h3 {
+            color: #C8464B;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image img {
+                margin: 0 auto;
+            }
+
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-container {
+                padding: 1rem;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Voltar para a página principal">
+                <img src="img/Logo55EncontroIEDE.png" alt="IEDE Logo">
+            </a>
+            <nav>
+                <a href="#programacao">Programação</a>
+                <a href="index.html" class="back-link">← Voltar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <span class="pill">Programação oficial</span>
+                <h1>Confira a programação do 55º Encontro Anual IEDE</h1>
+                <p>Uma visão organizada das principais sessões, palestras e momentos de networking do evento, pensada para facilitar a sua navegação.</p>
+                <p>Todos os conteúdos abaixo estão apresentados em um formato responsivo, com acesso rápido e leitura confortável em desktop e celular.</p>
+            </div>
+            <div class="hero-image">
+                <img src="img/folder2.png" alt="Programação do evento">
+            </div>
+        </section>
+
+        <section id="programacao" class="section">
+            <h2>Programação resumida</h2>
+            <p>A agenda foi organizada em blocos temáticos para que você acompanhe as principais atividades do encontro com facilidade.</p>
+
+            <div class="schedule-grid">
+                <article class="day-card">
+                    <h3>Dia 1 · 20/10/2026</h3>
+                    <div class="session">
+                        <span class="time">08:00</span>
+                        <strong>Abertura oficial</strong>
+                        <span>Boas-vindas, apresentação do evento e contexto do tema.</span>
+                    </div>
+                    <div class="session">
+                        <span class="time">09:30</span>
+                        <strong>Palestra inaugural</strong>
+                        <span>Endocrinologia na era digital: desafios e oportunidades.</span>
+                    </div>
+                    <div class="session">
+                        <span class="time">11:00</span>
+                        <strong>Intervalo e networking</strong>
+                        <span>Momento para troca de experiências entre participantes.</span>
+                    </div>
+                    <div class="session">
+                        <span class="time">14:00</span>
+                        <strong>Mesas temáticas</strong>
+                        <span>Discussões sobre diagnóstico, tratamento e inovação.</span>
+                    </div>
+                </article>
+
+                <article class="day-card">
+                    <h3>Dia 2 · 21/10/2026</h3>
+                    <div class="session">
+                        <span class="time">08:30</span>
+                        <strong>Atualizações clínicas</strong>
+                        <span>Novas diretrizes e boas práticas em endocrinologia.</span>
+                    </div>
+                    <div class="session">
+                        <span class="time">10:30</span>
+                        <strong>Cases e experiências</strong>
+                        <span>Apresentação de casos relevantes e discussões com especialistas.</span>
+                    </div>
+                    <div class="session">
+                        <span class="time">13:30</span>
+                        <strong>Workshop prático</strong>
+                        <span>Aplicação de ferramentas digitais na rotina profissional.</span>
+                    </div>
+                    <div class="session">
+                        <span class="time">16:00</span>
+                        <strong>Encerramento</strong>
+                        <span>Fechamento do evento e entrega de certificados.</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Local</h3>
+                    <p>Rio de Janeiro · RJ</p>
+                </div>
+                <div class="info-card">
+                    <h3>Formato</h3>
+                    <p>Presencial e online</p>
+                </div>
+                <div class="info-card">
+                    <h3>Certificado</h3>
+                    <p>Disponível para participantes inscritos</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>55º Encontro Anual IEDE</strong></p>
+        <p>Endocrinologia na Era Digital</p>
+        <p>Rio de Janeiro | 2026</p>
+    </footer>
+</body>
+</html>
