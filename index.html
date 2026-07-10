@@ -164,39 +164,9 @@
             text-align: justify;
         }
 
-        /* Palestrantes */
-        .speakers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .speaker-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .speaker-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .speaker-card h3 {
-            color: #C8464B;
-            margin: 1rem 0 0.5rem 0;
-        }
-
-        .speaker-card p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
+       
         /* Inscrição */
-        .registration-form {
+        #participanteForm {
             max-width: 600px;
             margin: 0 auto;
             background: #f9f9f9;
@@ -242,6 +212,39 @@
             font-family: inherit;
             resize: vertical;
             min-height: 120px;
+        }
+
+        .form-toggle {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-switch {
+            min-width: 180px;
+            border: none;
+        }
+
+        .form-switch.active {
+            background-color: #2f4f4f;
+        }
+
+        .form-panel {
+            display: none;
+        }
+
+        .form-panel.active {
+            display: block;
+        }
+
+        .message-field {
+            display: none;
+        }
+
+        .message-field.active {
+            display: block;
         }
 
         /* FAQ */
@@ -409,7 +412,7 @@
             <button class="menu-toggle" id="menuToggle">☰</button>
             <nav id="navMenu">
                 <a href="#sobre">Sobre Nós</a>
-                <a href="#palestrantes">Palestrantes</a>
+                <a href="prog.html">Programação</a>
                 <a href="#inscricao">Inscrição</a>
                 <a href="#faq">FAQ</a>
             </nav>
@@ -423,7 +426,10 @@
                 <h1>55º Encontro Anual IEDE</h1>
                 <p>Endocrinologia na Era Digital</p>
                 <p style="color: #555; font-size: 1rem;">Rio de Janeiro | 2026</p>
-                <a href="#inscricao" class="cta-button">Inscreva-se Agora</a>
+                <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;">
+                    <a href="#inscricao" class="cta-button">Inscreva-se Agora</a>
+                    <a href="prog.html" class="cta-button" style="background-color:#2f4f4f;">Ver Programação</a>
+                </div>
             </div>
             <div class="hero-image">
                 <img src="img/folder1.png" alt="Save the Date">
@@ -496,53 +502,61 @@
     
     <!-- Inscrição -->
     <section id="inscricao">
-        <h2>Inscreva-se Agora</h2>
+        <h2>Inscreva-se</h2>
         <div class="registration-form">
-            <form id="registrationForm">
+            <form id="participanteForm">
                 <div class="form-group">
-                    <label for="name">Nome Completo *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Telefone</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-
-                <div class="form-group">
-                    <label for="profession">Profissão *</label>
-                    <input type="text" id="profession" name="profession" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="institution">Instituição</label>
-                    <input type="text" id="institution" name="institution">
-                </div>
-
-                <div class="form-group">
-                    <label for="specialty">Especialidade</label>
-                    <select id="specialty" name="specialty">
-                        <option value="">Selecione uma especialidade</option>
-                        <option value="clinica">Endocrinologia Clínica</option>
-                        <option value="tireoide">Tireoide</option>
-                        <option value="diabetes">Diabetes</option>
-                        <option value="pediatrica">Pediatria Endócrina</option>
-                        <option value="reprodutiva">Hormônios e Reprodução</option>
+                    <label for="participanteTipoInscricao">Tipo de inscrição *</label>
+                    <select id="participanteTipoInscricao" name="tipo_inscricao">
+                        <option value="">Selecione o tipo de inscrição</option>
+                        <option value="socio">Sócio assep</option>
+                        <option value="convidado">Convidado lab</option>
+                        <option value="nao_socio">Não sócio</option>
+                        <option value="residente">Residente</option>
+                        <option value="cursista">Cursista IEDE</option>
                         <option value="outra">Outra</option>
                     </select>
                 </div>
+                
+                <div class="form-group message-field" id="participanteMensagemGroup">
+                    <label for="participanteMensagem">Outro tipo (Opcional)</label>
+                    <input type="text" id="participanteMensagem" name="message">
+                </div>
 
                 <div class="form-group">
-                    <label for="message">Mensagem (Opcional)</label>
-                    <textarea id="message" name="message"></textarea>
+                    <label for="participanteNome">Nome Completo *</label>
+                    <input type="text" id="participanteNome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="participanteEmail">Email *</label>
+                    <input type="email" id="participanteEmail" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="participanteTelefone">Telefone</label>
+                    <input type="tel" id="participanteTelefone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="participanteProfissao">Profissão *</label>
+                    <input type="text" id="participanteProfissao" name="profession" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="participanteInstituicao">Instituição</label>
+                    <input type="text" id="participanteInstituicao" name="institution">
+                </div>
+
+                <div class="form-group">
+                    <label for="participanteCRM">CRM</label>
+                    <input type="text" id="participanteCRM" name="crm">
                 </div>
 
                 <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Confirmar Inscrição</button>
+            </form>
+        </div>
+
             </form>
         </div>
     </section>
@@ -600,16 +614,6 @@
                     Sim! Todos os participantes registrados receberão certificado de participação, com horas de atividade acadêmica. O certificado será enviado por email após o evento.
                 </div>
             </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Como faço para ser palestrante?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    Profissionais interessados em apresentar trabalhos ou palestras podem enviar propostas até a data limite de submissão. Entre em contato através do email de suporte para mais informações.
-                </div>
-            </div>
         </div>
     </section>
 
@@ -661,23 +665,51 @@
             });
         });
 
-        // Formulário de Inscrição
-        const registrationForm = document.getElementById('registrationForm');
+        // Alternância entre os formulários
+        const formSwitchButtons = document.querySelectorAll('.form-switch');
+        const formPanels = document.querySelectorAll('.form-panel');
 
-        registrationForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+        formSwitchButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-form');
 
-            // Validação básica
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const profession = document.getElementById('profession').value.trim();
+                formSwitchButtons.forEach((btn) => btn.classList.toggle('active', btn === button));
+                formPanels.forEach((panel) => {
+                    panel.classList.toggle('active', panel.getAttribute('data-form') === target);
+                });
+            });
+        });
 
-            if (name && email && profession) {
-                alert(`Obrigado pela inscrição, ${name}! Verifique seu email para confirmação.`);
-                registrationForm.reset();
-            } else {
-                alert('Por favor, preencha todos os campos obrigatórios.');
-            }
+        const tipoInscricaoSelect = document.getElementById('participanteTipoInscricao');
+        const mensagemField = document.getElementById('participanteMensagemGroup');
+
+        function toggleMensagemField() {
+            const shouldShow = tipoInscricaoSelect && tipoInscricaoSelect.value === 'outra';
+            mensagemField.classList.toggle('active', shouldShow);
+        }
+
+        if (tipoInscricaoSelect) {
+            tipoInscricaoSelect.addEventListener('change', toggleMensagemField);
+            toggleMensagemField();
+        }
+
+        // Envio dos formulários
+        document.querySelectorAll('form').forEach((form) => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const nameField = form.querySelector('input[name="nome"]');
+                const name = nameField ? nameField.value.trim() : '';
+                const email = form.querySelector('input[type="email"]').value.trim();
+
+                if (name && email) {
+                    const label = form.id === 'palestranteForm' ? 'proposta' : 'inscrição';
+                    alert(`Obrigado, ${name}! Sua ${label} foi recebida com sucesso.`);
+                    form.reset();
+                } else {
+                    alert('Por favor, preencha os campos obrigatórios.');
+                }
+            });
         });
 
         // Smooth scroll para links de âncora
