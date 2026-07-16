@@ -141,47 +141,57 @@
             margin-bottom: 1rem;
         }
 
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1.2rem;
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .day-card {
+        .session-card {
             border: 1px solid #eee;
             border-radius: 12px;
-            padding: 1.2rem;
+            padding: 1.1rem 1.2rem;
             background: linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
         }
 
-        .day-card h3 {
+        .session-card h3 {
             color: #333;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
         }
 
-        .session {
-            padding: 0.8rem 0;
+        .session-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem 0;
             border-top: 1px solid #f1f1f1;
         }
 
-        .session:first-of-type {
+        .session-item:first-of-type {
             border-top: none;
             padding-top: 0;
         }
 
-        .time {
-            display: inline-block;
-            font-weight: 700;
+        .time-badge {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 84px;
+            padding: 0.38rem 0.6rem;
+            border-radius: 999px;
+            background: #fce9eb;
             color: #C8464B;
-            margin-bottom: 0.25rem;
+            font-weight: 700;
+            font-size: 0.95rem;
         }
 
-        .session strong {
+        .session-content strong {
             display: block;
             margin-bottom: 0.2rem;
         }
 
-        .session span {
+        .session-content span {
             color: #666;
             font-size: 0.95rem;
         }
@@ -226,8 +236,8 @@
                 margin: 0 auto;
             }
 
-            .schedule-grid {
-                grid-template-columns: 1fr;
+            .schedule-list {
+                gap: 0.8rem;
             }
 
             .info-grid {
@@ -289,71 +299,211 @@
         </section>
 
         <section id="programacao" class="section">
-            <h2>Programação resumida</h2>
-            <p>A agenda foi organizada em blocos temáticos para que você acompanhe as principais atividades do encontro com facilidade.</p>
+            <h2>Programação preliminar</h2>
+            <p>A agenda abaixo segue a ordem apresentada no PDF, mantendo os horários e os blocos de conteúdo da programação oficial.</p>
 
-            <div class="schedule-grid">
-                <article class="day-card">
-                    <!--<h3>Dia 1 · 20/10/2026</h3>-->
-                    <div class="session">
-                        <span class="time">08:00</span>
-                        <strong>Abertura oficial</strong>
-                        <span>Boas-vindas, apresentação do evento e contexto do tema.</span>
+            <div class="schedule-list">
+                <article class="session-card">
+                    <h3>04/12/2026 · Sexta-feira</h3>
+                    <div class="session-item">
+                        <span class="time-badge">08:30</span>
+                        <div class="session-content">
+                            <strong>Conferência de abertura</strong>
+                            <span>Medicina do estilo de vida na era digital.</span>
+                        </div>
                     </div>
-                    <div class="session">
-                        <span class="time">08:30</span>
-                        <strong>Atualizações clínicas</strong>
-                        <span>Novas diretrizes e boas práticas em endocrinologia.</span>
+                    <div class="session-item">
+                        <span class="time-badge">09:05</span>
+                        <div class="session-content">
+                            <strong>Síndrome Ovariana Metabólica Poliendócrina</strong>
+                            <span>O que há de novo além do nome?</span>
+                        </div>
                     </div>
-                    <div class="session">
-                        <span class="time">09:30</span>
-                        <strong>Palestra inaugural</strong>
-                        <span>Endocrinologia na era digital: desafios e oportunidades.</span>
+                    <div class="session-item">
+                        <span class="time-badge">10:00</span>
+                        <div class="session-content">
+                            <strong>Coffee break</strong>
+                            <span>Intervalo para networking.</span>
+                        </div>
                     </div>
-                    <div class="session">
-                        <span class="time">10:30</span>
-                        <strong>Cases e experiências</strong>
-                        <span>Apresentação de casos relevantes e discussões com especialistas.</span>
+                    <div class="session-item">
+                        <span class="time-badge">10:50</span>
+                        <div class="session-content">
+                            <strong>Papel das ferramentas de IA</strong>
+                            <span>No controle do paciente com obesidade.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">11:10</span>
+                        <div class="session-content">
+                            <strong>Posicionamento nas redes sociais</strong>
+                            <span>Ao falar sobre obesidade.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">11:30</span>
+                        <div class="session-content">
+                            <strong>Câncer de tireoide</strong>
+                            <span>Discussão sobre o tema.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">11:50</span>
+                        <div class="session-content">
+                            <strong>Discussão</strong>
+                            <span>Debate aberto com os participantes.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">12:35</span>
+                        <div class="session-content">
+                            <strong>Intervalo para o almoço</strong>
+                            <span>Momento de descanso e convivência.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">13:35</span>
+                        <div class="session-content">
+                            <strong>Tecnologia no manejo do DM1</strong>
+                            <span>Em adolescentes.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">13:55</span>
+                        <div class="session-content">
+                            <strong>Novas ferramentas na abordagem</strong>
+                            <span>Das alterações de crescimento e puberdade.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">14:15</span>
+                        <div class="session-content">
+                            <strong>Discussão</strong>
+                            <span>Encerramento das discussões da tarde.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">14:30</span>
+                        <div class="session-content">
+                            <strong>Simpósio Lilly</strong>
+                            <span>Apresentação institucional.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">15:00</span>
+                        <div class="session-content">
+                            <strong>Coffee break</strong>
+                            <span>Intervalo entre os blocos.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">16:30</span>
+                        <div class="session-content">
+                            <strong>Coquetel de encerramento</strong>
+                            <span>Encerramento oficial do evento.</span>
+                        </div>
                     </div>
                 </article>
 
-                <article class="day-card">
-                    <!--<h3>Dia 2 · 21/10/2026</h3>-->
-                    <div class="session">
-                        <span class="time">16:00</span>
-                        <strong>Encerramento</strong>
-                        <span>Fechamento do evento e entrega de certificados.</span>
+                <article class="session-card">
+                    <h3>Mesa 1 · Endocrinofeminina e Andrologia</h3>
+                    <div class="session-item">
+                        <span class="time-badge">09:05</span>
+                        <div class="session-content">
+                            <strong>Bloco temático</strong>
+                            <span>Conforme a ordem do PDF, com foco em endocrinofeminina e andrologia.</span>
+                        </div>
                     </div>
-                    <div class="session">
-                        <span class="time">11:00</span>
-                        <strong>Intervalo e networking</strong>
-                        <span>Momento para troca de experiências entre participantes.</span>
+                    <div class="session-item">
+                        <span class="time-badge">10:50</span>
+                        <div class="session-content">
+                            <strong>IA e obesidade</strong>
+                            <span>Discussão sobre ferramentas digitais no tratamento.</span>
+                        </div>
                     </div>
-                    <div class="session">
-                        <span class="time">13:30</span>
-                        <strong>Workshop prático</strong>
-                        <span>Aplicação de ferramentas digitais na rotina profissional.</span>
+                    <div class="session-item">
+                        <span class="time-badge">11:30</span>
+                        <div class="session-content">
+                            <strong>Câncer de tireoide</strong>
+                            <span>Temática da mesa.</span>
+                        </div>
                     </div>
-                    <div class="session">
-                        <span class="time">14:00</span>
-                        <strong>Mesas temáticas</strong>
-                        <span>Discussões sobre diagnóstico, tratamento e inovação.</span>
+                </article>
+
+                <article class="session-card">
+                    <h3>Mesa 2 · Miscelânia</h3>
+                    <div class="session-item">
+                        <span class="time-badge">09:25</span>
+                        <div class="session-content">
+                            <strong>Teste genético na THM</strong>
+                            <span>Existe alguma evidência?</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">09:45</span>
+                        <div class="session-content">
+                            <strong>Discussão</strong>
+                            <span>Debate sobre o tema.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">10:20</span>
+                        <div class="session-content">
+                            <strong>Simpósio Chiesi</strong>
+                            <span>Apresentação temática.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">12:05</span>
+                        <div class="session-content">
+                            <strong>Simpósio</strong>
+                            <span>Encerramento da mesa.</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="session-card">
+                    <h3>Mesa 3 · Endocrinologia Pediátrica</h3>
+                    <div class="session-item">
+                        <span class="time-badge">--</span>
+                        <div class="session-content">
+                            <strong>Bloco previsto no PDF</strong>
+                            <span>Conteúdo a ser complementado com a versão final da programação.</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="session-card">
+                    <h3>Premiações e homenagens</h3>
+                    <div class="session-item">
+                        <span class="time-badge">--</span>
+                        <div class="session-content">
+                            <strong>Prêmio José Schermann</strong>
+                            <span>Prêmio Jayme Rodrigues</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">--</span>
+                        <div class="session-content">
+                            <strong>Jubileu de 25 anos</strong>
+                            <span>Turma de 2001.</span>
+                        </div>
                     </div>
                 </article>
             </div>
 
             <div class="info-grid">
                 <div class="info-card">
+                    <h3>Data</h3>
+                    <p>04/12/2026 · sexta-feira</p>
+                </div>
+                <div class="info-card">
                     <h3>Local</h3>
-                    <p>Rio de Janeiro · RJ</p>
+                    <p>Casa da Medicina da PUC-RJ<br>Estrada da Gávea, 36<br>Bairro da Gávea, Rio de Janeiro/RJ</p>
                 </div>
                 <div class="info-card">
-                    <h3>Formato</h3>
-                    <p>Presencial e online</p>
-                </div>
-                <div class="info-card">
-                    <h3>Certificado</h3>
-                    <p>Disponível para participantes inscritos</p>
+                    <h3>Evento</h3>
+                    <p>55º Encontro Anual IEDE<br>Endocrinologia na Era Digital</p>
                 </div>
             </div>
         </section>
