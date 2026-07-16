@@ -155,9 +155,14 @@
         }
 
         .session-card h3 {
-            color: #333;
+            display: block;
+            width: 100%;
+            background: #C8464B;
+            color: white;
             margin-bottom: 0.75rem;
             font-size: 1.05rem;
+            padding: 0.6rem 0.9rem;
+            border-radius: 10px;
         }
 
         .session-item {
@@ -304,19 +309,36 @@
 
             <div class="schedule-list">
                 <article class="session-card">
-                    <h3>04/12/2026 · Sexta-feira</h3>
+                    <h3>Abertura </h3>
                     <div class="session-item">
                         <span class="time-badge">08:30</span>
                         <div class="session-content">
                             <strong>Conferência de abertura</strong>
                             <span>Medicina do estilo de vida na era digital.</span>
                         </div>
-                    </div>
+                </article>
+
+                <article class="session-card">
+                    <h3>Mesa 1 · Endocrinofeminina e Andrologia</h3>
                     <div class="session-item">
                         <span class="time-badge">09:05</span>
                         <div class="session-content">
                             <strong>Síndrome Ovariana Metabólica Poliendócrina</strong>
                             <span>O que há de novo além do nome?</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">09:25</span>
+                        <div class="session-content">
+                            <strong>Teste genético na THM</strong>
+                            <span>Existe alguma evidência?</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">09:45</span>
+                        <div class="session-content">
+                            <strong>Discussão</strong>
+                            <span>Debate sobre o tema.</span>
                         </div>
                     </div>
                     <div class="session-item">
@@ -326,6 +348,17 @@
                             <span>Intervalo para networking.</span>
                         </div>
                     </div>
+                    <div class="session-item">
+                        <span class="time-badge">10:20</span>
+                        <div class="session-content">
+                            <strong>Simpósio Chiesi</strong>
+                            <span>Apresentação temática.</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="session-card">
+                    <h3>Mesa 2 · Miscelânia</h3>
                     <div class="session-item">
                         <span class="time-badge">10:50</span>
                         <div class="session-content">
@@ -355,12 +388,23 @@
                         </div>
                     </div>
                     <div class="session-item">
+                        <span class="time-badge">12:05</span>
+                        <div class="session-content">
+                            <strong>Simpósio</strong>
+                            <span>Encerramento da mesa.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
                         <span class="time-badge">12:35</span>
                         <div class="session-content">
                             <strong>Intervalo para o almoço</strong>
                             <span>Momento de descanso e convivência.</span>
                         </div>
                     </div>
+                </article>
+
+                <article class="session-card">
+                    <h3>Mesa 3 · Endocrinologia Pediátrica</h3>
                     <div class="session-item">
                         <span class="time-badge">13:35</span>
                         <div class="session-content">
@@ -396,81 +440,6 @@
                             <span>Intervalo entre os blocos.</span>
                         </div>
                     </div>
-                    <div class="session-item">
-                        <span class="time-badge">16:30</span>
-                        <div class="session-content">
-                            <strong>Coquetel de encerramento</strong>
-                            <span>Encerramento oficial do evento.</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="session-card">
-                    <h3>Mesa 1 · Endocrinofeminina e Andrologia</h3>
-                    <div class="session-item">
-                        <span class="time-badge">09:05</span>
-                        <div class="session-content">
-                            <strong>Bloco temático</strong>
-                            <span>Conforme a ordem do PDF, com foco em endocrinofeminina e andrologia.</span>
-                        </div>
-                    </div>
-                    <div class="session-item">
-                        <span class="time-badge">10:50</span>
-                        <div class="session-content">
-                            <strong>IA e obesidade</strong>
-                            <span>Discussão sobre ferramentas digitais no tratamento.</span>
-                        </div>
-                    </div>
-                    <div class="session-item">
-                        <span class="time-badge">11:30</span>
-                        <div class="session-content">
-                            <strong>Câncer de tireoide</strong>
-                            <span>Temática da mesa.</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="session-card">
-                    <h3>Mesa 2 · Miscelânia</h3>
-                    <div class="session-item">
-                        <span class="time-badge">09:25</span>
-                        <div class="session-content">
-                            <strong>Teste genético na THM</strong>
-                            <span>Existe alguma evidência?</span>
-                        </div>
-                    </div>
-                    <div class="session-item">
-                        <span class="time-badge">09:45</span>
-                        <div class="session-content">
-                            <strong>Discussão</strong>
-                            <span>Debate sobre o tema.</span>
-                        </div>
-                    </div>
-                    <div class="session-item">
-                        <span class="time-badge">10:20</span>
-                        <div class="session-content">
-                            <strong>Simpósio Chiesi</strong>
-                            <span>Apresentação temática.</span>
-                        </div>
-                    </div>
-                    <div class="session-item">
-                        <span class="time-badge">12:05</span>
-                        <div class="session-content">
-                            <strong>Simpósio</strong>
-                            <span>Encerramento da mesa.</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="session-card">
-                    <h3>Mesa 3 · Endocrinologia Pediátrica</h3>
-                    <div class="session-item">
-                        <span class="time-badge">--</span>
-                        <div class="session-content">
-                            <strong>Bloco previsto no PDF</strong>
-                            <span>Conteúdo a ser complementado com a versão final da programação.</span>
-                        </div>
-                    </div>
                 </article>
 
                 <article class="session-card">
@@ -487,6 +456,13 @@
                         <div class="session-content">
                             <strong>Jubileu de 25 anos</strong>
                             <span>Turma de 2001.</span>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">16:30</span>
+                        <div class="session-content">
+                            <strong>Coquetel de encerramento</strong>
+                            <span>Encerramento oficial do evento.</span>
                         </div>
                     </div>
                 </article>
@@ -513,6 +489,7 @@
         <p><strong>55º Encontro Anual IEDE</strong></p>
         <p>Endocrinologia na Era Digital</p>
         <p>Rio de Janeiro | 2026</p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem;">© 2026 ASSEP - Associação de Ensino e Pesquisa do Instituto Estadual de Diabetes e Endocrinologia Luiz Capriglione.</p>
     </footer>
 </body>
 </html>
