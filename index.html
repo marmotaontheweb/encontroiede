@@ -468,8 +468,8 @@
         <div class="registration-form">
             <form id="participanteForm">
                 <div class="form-group">
-                    <label for="participanteTipoInscricao">Tipo de inscrição *</label>
-                    <select id="participanteTipoInscricao" name="tipo_inscricao">
+                    <label for="tipoInscricao">Tipo de inscrição *</label>
+                    <select id="tipoInscricao" name="tipo_inscricao">
                         <option value="">Selecione o tipo de inscrição</option>
                         <option value="socio">Sócio ASSEP</option>
                         <option value="convidado">Convidado lab</option>
@@ -481,33 +481,32 @@
                 </div>
                 
                 <div class="form-group message-field" id="participanteMensagemGroup">
-                    <label for="participanteMensagem">Outro tipo de inscrição (Descrição opcional)</label>
-                    <input type="text" id="participanteMensagem" name="message">
+                    <label for="mensagem">Outro tipo de inscrição (Descrição opcional)</label>
+                    <input type="text" id="mensagem" name="message">
                 </div>
 
                 <div class="form-group">
                     <label for="participanteNome">Nome Completo *</label>
-                    <input type="text" id="participanteNome" name="nome" required>
+                    <input type="text" id="nome" name="nome" required>
                 </div>
 
                 <div class="form-group">
                     <label for="participanteEmail">Email *</label>
-                    <input type="email" id="participanteEmail" name="email" required>
+                    <input type="email" id="email" name="email" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="participanteTelefone">Telefone</label>
-                    <input type="tel" id="participanteTelefone" name="phone">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="phone">
                 </div>
 
                 <div class="form-group">
-                    <label for="participanteInstituicao">Instituição</label>
-                    <input type="text" id="participanteInstituicao" name="institution">
+                    <label for="instituicao">Instituição</label>
+                    <input type="text" id="instituicao" name="institution">
                 </div>
 
-                <div class="form-group">
-                    <label for="participanteCRM">CRM</label>
-                    <input type="text" id="participanteCRM" name="crm">
+                <div class="form-crm">CRM</label>
+                    <input type="text" id="crm" name="crm">
                 </div>
 
                 <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Confirmar Inscrição</button>
@@ -515,6 +514,40 @@
         </div>
 
             </form>
+
+            <script>
+        document.getElementById('meuFormulario').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede a página de recarregar
+
+            const dados = {
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                inscricao: document.getElementById('tipoInscricao').value,
+                mensagem: document.getElementById('mensagem').value,
+                telefone: document.getElementById('telefone').value,
+                instituicao: document.getElementById('instituicao').value,
+                crm: document.getElementById('crm')
+            };
+
+            // Substitua pela URL da sua implantação do Google Apps Script
+            const urlAppScript = "https://script.google.com/u/0/home/projects/1pchpdqLYNxWo2I-U0r49dhikDGilTsymnbGagZINcHCyvntAlJ98h3vT/edit"; 
+
+            fetch(urlAppScript, {
+                method: 'POST',
+                mode: 'no-cors', // Evita erros de CORS no navegador
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            })
+            .then(() => {
+                alert('Inscrição realizada com sucesso!');
+                document.getElementById('meuFormulario').reset();
+            })
+            .catch(erro => console.error('Erro:', erro));
+        });
+    </script>
+
         </div>
     </section>
 
