@@ -517,37 +517,46 @@
             </form>
 
             <script>
-        document.getElementById('meuFormulario').addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede a página de recarregar
+                    document.getElementById('meuFormulario').addEventListener('submit', function(e) {
+                    e.preventDefault(); // Impede a página de recarregar
 
-            const dados = {
-                nome: document.getElementById('nome').value,
-                email: document.getElementById('email').value,
-                inscricao: document.getElementById('tipoInscricao').value,
-                mensagem: document.getElementById('mensagem').value,
-                telefone: document.getElementById('telefone').value,
-                instituicao: document.getElementById('instituicao').value,
-                crm: document.getElementById('crm')
-            };
+                    // Captura os dados digitados
+                    const nome = document.getElementById('nome').value;
+                    const email = document.getElementById('email').value;
+                    const tipoInscricao = document.getElementById('tipoInscricao').value;
+                    const mensagem = document.getElementById('mensagem').value;
+                    const telefone = document.getElementById('telefone').value;
+                    const instituicao = document.getElementById('instituicao').value;
+                    const crm = document.getElementById('crm').value;
 
-            // Substitua pela URL da sua implantação do Google Apps Script
-            const urlAppScript = "https://script.google.com/macros/s/AKfycbx82n01PJEd5TYdT8UYlUyim4PIcFZbB43faqs_im1H_X_vrRwM5Z03FhvXDtVry1M/exec"; 
+                    // Prepara os dados no formato correto para o Google
+                    const dados = new URLSearchParams();
+                    dados.append('nome', nome);
+                    dados.append('email', email);
+                    dados.append('tipo_inscricao', tipoInscricao);
+                    dados.append('mensagem', mensagem);
+                    dados.append('telefone', telefone);
+                    dados.append('instituicao', instituicao);
+                    dados.append('crm', crm);
 
-            fetch(urlAppScript, {
-                method: 'POST',
-                mode: 'no-cors', // Evita erros de CORS no navegador
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dados)
-            })
-            .then(() => {
-                alert('Inscrição realizada com sucesso!');
-                document.getElementById('meuFormulario').reset();
-            })
-            .catch(erro => console.error('Erro:', erro));
-        });
-    </script>
+                    // Substitua pela URL da sua implantação do Google Apps Script
+                    const urlAppScript = "https://script.google.com/macros/s/AKfycbx82n01PJEd5TYdT8UYlUyim4PIcFZbB43faqs_im1H_X_vrRwM5Z03FhvXDtVry1M/exec"; 
+
+                    fetch(urlAppScript, {
+                        method: 'POST',
+                        mode: 'no-cors', // Evita erros de CORS no navegador
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(dados)
+                    })
+                    .then(() => {   
+                        alert('Inscrição realizada com sucesso!');
+                        document.getElementById('meuFormulario').reset();
+                    })
+                    .catch(erro => console.error('Erro:', erro));
+                });
+            </script>
 
         </div>
     </section>
