@@ -467,8 +467,8 @@
         <h2>Inscreva-se</h2>
         <div class="registration-form">
             <form id="participanteForm">
-                <div class="form-group">
-                    <label for="tipoInscricao">Tipo de inscrição *</label>
+                <div class="form-group" id="tipoInscricao">
+                    <label for="participanteTipoInscricao">Tipo de inscrição *</label>
                     <select id="tipoInscricao" name="tipo_inscricao">
                         <option value="">Selecione o tipo de inscrição</option>
                         <option value="socio">Sócio ASSEP</option>
@@ -480,39 +480,35 @@
                     </select>
                 </div>
                 
-                <div class="form-group message-field" id="participanteMensagemGroup">
-                    <label for="mensagem">Outro tipo de inscrição (Descrição opcional)</label>
+                <div class="form-group message-field" id="mensagemp">
+                    <label for="participanteMensagem">Outro tipo de inscrição (Descrição opcional)</label>
                     <input type="text" id="mensagem" name="message">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="nome">
                     <label for="participanteNome">Nome Completo *</label>
                     <input type="text" id="nome" name="nome" required>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="email">
                     <label for="participanteEmail">Email *</label>
                     <input type="email" id="email" name="email" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="telefone">Telefone</label>
+                <div class="form-group" id="telefone">
+                    <label for="participanteTelefone">Telefone</label>
                     <input type="tel" id="telefone" name="phone">
                 </div>
 
-                <div class="form-group">
-                    <label for="instituicao">Instituição</label>
+                <div class="form-group" id="instituicao">
+                    <label for="participanteInstituicao">Instituição</label>
                     <input type="text" id="instituicao" name="institution">
                 </div>
 
-                <div class="form-group">
-                    <label for="crm">CRM</label>
+                <div class="form-group" id="crm">
+                    <label for="participanteCrm">CRM</label>
                     <input type="text" id="crm" name="crm">
                 </div>
-
-                <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Confirmar Inscrição</button>
-            </form>
-        </div>
 
             </form>
 
