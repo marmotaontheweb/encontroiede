@@ -472,7 +472,7 @@
                     <select id="tipoInscricao" name="tipo_inscricao">
                         <option value="">Selecione o tipo de inscrição</option>
                         <option value="socio">Sócio ASSEP</option>
-                        <!--    option value="convidado">Convidado lab</option>     -->
+                        <option value="convidado">Convidado lab</option>
                         <option value="nao_socio">Não sócio</option>
                         <option value="residente">Residente</option>
                         <option value="cursista">Cursista IEDE</option>
@@ -511,6 +511,10 @@
                 </div>
 
                 <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Confirmar Inscrição</button>
+
+                <div id="pagbankButtonContainer" style="display: none; margin-top: 1rem; text-align: center;">
+                    <!-- INICIO DO BOTAO PAGBANK --><a href="https://pag.ae/81Zi5ErsN/button" target="_blank" title="Pagar com PagBank"><img src="https://assets.pagseguro.com.br/ps-integration-assets/botoes/pagamentos/205x30-pagar.gif" alt="Pague com PagBank - é rápido, grátis e seguro!" /></a><!-- FIM DO BOTAO PAGBANK -->
+                </div>
             </form>
         </div>
 
@@ -527,7 +531,7 @@
                     formData.append('instituicao', document.getElementById('instituicao').value);
                     formData.append('crm', document.getElementById('crm').value);
 
-                    const urlAppScript = "https://script.google.com/macros/s/AKfycbzFyPRjUs3iTX6nQuTcU_3rBM0pagKQPnJmXmHiPE2lqHUehi1Lg2E58qdYmMdDI5VF/exec";
+                    const urlAppScript = "https://script.google.com/macros/s/AKfycbxtkRjY72XeimKls5kIog0k7rRQMfPQ8AMwPvJLBhmMz7sFKiXM0hmJmRR3IaByGrI8/exec";
 
                     fetch(urlAppScript, {
                         method: 'POST',
