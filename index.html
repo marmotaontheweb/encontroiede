@@ -480,7 +480,7 @@
                     </select>
                 </div>
                 
-                <div class="form-group message-field">
+                <div class="form-group message-field" id="mensagemField">
                     <label for="participanteMensagem">Outro tipo de inscrição (Descrição opcional)</label>
                     <input type="text" id="mensagem" name="message">
                 </div>
@@ -690,16 +690,18 @@
             });
         });
 
-        const tipoInscricaoSelect = document.getElementById('participanteTipoInscricao');
-        const mensagemField = document.getElementById('participanteMensagemGroup');
+        const tipoInscricaoSelectField = document.getElementById('tipoInscricao');
+        const mensagemField = document.getElementById('mensagemField');
 
         function toggleMensagemField() {
-            const shouldShow = tipoInscricaoSelect && tipoInscricaoSelect.value === 'outra';
-            mensagemField.classList.toggle('active', shouldShow);
+            const shouldShow = tipoInscricaoSelectField && tipoInscricaoSelectField.value === 'outra';
+            if (mensagemField) {
+                mensagemField.classList.toggle('active', shouldShow);
+            }
         }
 
-        if (tipoInscricaoSelect) {
-            tipoInscricaoSelect.addEventListener('change', toggleMensagemField);
+        if (tipoInscricaoSelectField) {
+            tipoInscricaoSelectField.addEventListener('change', toggleMensagemField);
             toggleMensagemField();
         }
 
