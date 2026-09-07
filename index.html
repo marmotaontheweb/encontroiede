@@ -528,7 +528,7 @@
 
                 function togglePagbankButton() {
                     if (pagbankButtonContainer && tipoInscricaoSelect) {
-                        const shouldShowPagbank = ['nao_socio', 'residente2', 'cursista2'].includes(tipoInscricaoSelect.value);
+                        const shouldShowPagbank = ['nao_socio', 'residente2', 'cursista2', 'outra'].includes(tipoInscricaoSelect.value);
                         pagbankButtonContainer.style.display = shouldShowPagbank ? 'block' : 'none';
                     }
                 }
