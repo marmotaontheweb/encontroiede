@@ -471,7 +471,7 @@
                     <label for="participanteTipoInscricao">Tipo de inscrição *</label>
                     <select id="tipoInscricao" name="tipo_inscricao">
                         <option value="">Selecione o tipo de inscrição</option>
-                         <option value="socio">Sócio ASSEP</option>
+                        <option value="socio">Sócio ASSEP</option>
                         <!-- <option value="convidado">Convidado lab</option> -->
                         <option value="nao_socio">Não sócio</option>
                         <option value="residente1">Residente IEDE</option>
@@ -511,7 +511,24 @@
                     <label for="participanteCrm">CRM</label>
                     <input type="text" id="crm" name="crm">
                 </div>
-
+                
+                <div class="form-group info-text" id="info_nao_socio" style="display: none; margin-top: 1rem; color: #C8464B; font-weight: bold;">
+                   <p>
+                     Clicando no botão abaixo, você será redirecionado para a página de pagamento do PagBank. Complete o pagamento para finalizar sua inscrição: não sócio, R$ 300.00.
+                   </p>
+                </div>
+                
+                <div class="form-group info-text" id="info_externo" style="display: none; margin-top: 1rem; color: #C8464B; font-weight: bold;">
+                   <p>
+                     Clicando no botão abaixo, você será redirecionado para a página de pagamento do PagBank. Complete o pagamento para finalizar sua inscrição: residente/cursista externo, R$ 150.00.
+                   </p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="participanteInstituicao">Instituição</label>
+                    <input type="text" id="instituicao" name="institution">
+                </div>
+                
                 <div id="pagbankButtonContainer" style="display: none; margin-top: 1rem; text-align: center;">
                     <!-- INICIO DO BOTAO PAGBANK -->
                     <a href="https://pag.ae/827AKoS15/button" target="_blank" title="Pagar com PagBank"><img src="https://assets.pagseguro.com.br/ps-integration-assets/botoes/pagamentos/205x30-pagar.gif" alt="Pague com PagBank - é rápido, grátis e seguro!" /></a>
@@ -525,6 +542,8 @@
             <script>
                 const tipoInscricaoSelect = document.getElementById('tipoInscricao');
                 const pagbankButtonContainer = document.getElementById('pagbankButtonContainer');
+                const infoNaoSocio = document.getElementById('info_nao_socio');
+                const infoExterno = document.getElementById('info_externo');
 
                 function togglePagbankButton() {
                     if (pagbankButtonContainer && tipoInscricaoSelect) {
@@ -533,9 +552,25 @@
                     }
                 }
 
+                function toggleInfoMessages() {
+                    const value = tipoInscricaoSelect ? tipoInscricaoSelect.value : '';
+
+                    if (infoNaoSocio) {
+                        infoNaoSocio.style.display = value === 'nao_socio' ? 'block' : 'none';
+                    }
+
+                    if (infoExterno) {
+                        infoExterno.style.display = ['residente2', 'cursista2'].includes(value) ? 'block' : 'none';
+                    }
+                }
+
                 if (tipoInscricaoSelect) {
-                    tipoInscricaoSelect.addEventListener('change', togglePagbankButton);
+                    tipoInscricaoSelect.addEventListener('change', () => {
+                        togglePagbankButton();
+                        toggleInfoMessages();
+                    });
                     togglePagbankButton();
+                    toggleInfoMessages();
                 }
 
                 document.getElementById('participanteForm').addEventListener('submit', function(e) {
