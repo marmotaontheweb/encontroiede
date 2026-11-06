@@ -166,7 +166,9 @@
         }
 
         .session-item {
-            display: flex;
+            display: grid;
+            grid-template-columns: 112px minmax(0, 1fr) minmax(160px, 0.55fr);
+            align-items: start;
             gap: 1rem;
             padding: 0.75rem 0;
             border-top: 1px solid #f1f1f1;
@@ -182,7 +184,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 84px;
+            min-width: 112px;
             padding: 0.38rem 0.6rem;
             border-radius: 999px;
             background: #fce9eb;
@@ -197,6 +199,11 @@
         }
 
         .session-content span {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .session-speaker {
             color: #666;
             font-size: 0.95rem;
         }
@@ -274,6 +281,14 @@
             .section {
                 padding: 1.2rem;
             }
+
+            .session-item {
+                grid-template-columns: 112px minmax(0, 1fr);
+            }
+
+            .session-speaker {
+                grid-column: 2;
+            }
         }
     </style>
 </head>
@@ -308,128 +323,137 @@
 
             <div class="schedule-list">
                 <article class="session-card">
-                    <h3>Abertura </h3>
+                    <h3>Abertura e conferência de abertura</h3>
                     <div class="session-item">
-                        <span class="time-badge">08:30</span>
+                        <span class="time-badge">08:30–08:35</span>
                         <div class="session-content">
-                            <strong>Conferência de abertura</strong>
-                            <span>Medicina do estilo de vida na era digital.</span>
+                            <strong>Abertura</strong>
                         </div>
+                        <span class="session-speaker">Lívia Lugarinho, Karen de Marca e Almar Bastos</span>
+                    </div>
                 </article>
 
                 <article class="session-card">
-                    <h3>Mesa 1 · Endocrinofeminina e Andrologia</h3>
+                    <h3>Conferência de abertura · Apresentadora: Livia Lugarinho</h3>
                     <div class="session-item">
-                        <span class="time-badge">09:05</span>
+                        <span class="time-badge">08:35–09:04</span>
                         <div class="session-content">
-                            <strong>Palestra BESINS:</strong>
-                            <span>“Hipogonadismo Masculino: Uma leitura prática do Position Statement Brasileiro.”</span>
+                            <strong>Medicina do estilo de vida na era digital</strong>
+                            <span>Conferência de abertura</span>
                         </div>
+                        <span class="session-speaker">Priscilla Gil<br></span>
+                    </div>
+                </article>
+
+                <article class="session-card">
+                    <h3>Mesa 1 · Endocrinofeminina e Andrologia · Presidente: Karen de Marca</h3>
+                    <div class="session-item">
+                        <span class="time-badge">09:04–09:24</span>
+                        <div class="session-content">
+                            <strong>Palestra BESINS</strong>
+                            <span>Hipogonadismo Masculino: Uma leitura prática do Position Statement Brasileiro</span>
+                        </div>
+                        <span class="session-speaker">Alexandre Hohl</span>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">09:25</span>
+                        <span class="time-badge">09:24–09:44</span>
                         <div class="session-content">
                             <strong>Teste genético na THM</strong>
                             <span>Existe alguma evidência?</span>
                         </div>
+                        <span class="session-speaker">Amanda Laudier</span>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">09:45</span>
+                        <span class="time-badge">09:44–09:59</span>
                         <div class="session-content">
                             <strong>Discussão</strong>
-                            <span>Debate sobre o tema.</span>
                         </div>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">10:00</span>
+                        <span class="time-badge">09:59–10:19</span>
                         <div class="session-content">
                             <strong>Coffee break</strong>
-                            <!-- <span>Intervalo para networking.</span> -->
                         </div>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">10:20</span>
+                        <span class="time-badge">10:19–10:49</span>
                         <div class="session-content">
-                            <strong>Simpósio satélite</strong>
-                            <!-- <span>Apresentação temática.</span> -->
+                            <strong>Simpósio Chiesi</strong>
+                        </div>
+                        <span class="session-speaker">Cynthia Valerio</span>
+                    </div>
+                </article>
+
+                <article class="session-card">
+                    <h3>Mesa 2 · Obesidade · Presidente: Lívia Lugarinho</h3>
+                    <div class="session-item">
+                        <span class="time-badge">10:50–11:10</span>
+                        <div class="session-content">
+                            <strong>Papel das ferramentas de IA no controle do paciente com obesidade</strong>
+                        </div>
+                        <span class="session-speaker">Walmir Coutinho</span>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">11:10–11:30</span>
+                        <div class="session-content">
+                            <strong>Como se posicionar nas redes sociais ao falar sobre obesidade</strong>
+                        </div>
+                        <span class="session-speaker">Raquel Muniz</span>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">11:30–11:45</span>
+                        <div class="session-content">
+                            <strong>Discussão</strong>
+                        </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">11:45–12:15</span>
+                        <div class="session-content">
+                            <strong>Simpósio Novo Nordisk</strong>
+                        </div>
+                        <span class="session-speaker">Lívia Lugarinho</span>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">12:15–13:15</span>
+                        <div class="session-content">
+                            <strong>Intervalo para almoço</strong>
                         </div>
                     </div>
                 </article>
 
                 <article class="session-card">
-                    <h3>Mesa 2 · Obesidade</h3>
+                    <h3>Mesa 3 · Endocrinologia Pediátrica · Presidente: Latife Tyszler</h3>
                     <div class="session-item">
-                        <span class="time-badge">10:50</span>
+                        <span class="time-badge">13:14–13:34</span>
                         <div class="session-content">
-                            <strong>Papel das ferramentas de IA</strong>
-                            <span>No controle do paciente com obesidade.</span>
+                            <strong>Tecnologia no manejo do DM1 em adolescentes</strong>
                         </div>
+                        <span class="session-speaker">Paloma Hess</span>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">11:10</span>
+                        <span class="time-badge">13:34–13:54</span>
                         <div class="session-content">
-                            <strong>Como se posicionar nas redes sociais</strong>
-                            <span>Ao falar sobre obesidade.</span>
+                            <strong>Novas ferramentas na abordagem das alterações de crescimento e puberdade</strong>
                         </div>
+                        <span class="session-speaker">Isla Paiva</span>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">11:30</span>
-                        <div class="session-content">
-                            <strong>Discussão</strong>
-                            <!-- <span>Sobre o tema.</span> -->
-                        </div>
-                    </div>
-                    <div class="session-item">
-                        <span class="time-badge">11:45</span>
-                        <div class="session-content">
-                            <strong>Simpósio satélite</strong>
-                            <!-- <span>Debate aberto com os participantes.</span> -->
-                        </div>
-                    </div>
-                    <div class="session-item">
-                        <span class="time-badge">12:15</span>
-                        <div class="session-content">
-                            <strong>Intervalo para o almoço</strong>
-                            <!-- <span>Momento de descanso e convivência.</span> -->
-                        </div>
-                    </div>
-                </article>
-
-                <article class="session-card">
-                    <h3>Mesa 3 · Endocrinologia Pediátrica</h3>
-                    <div class="session-item">
-                        <span class="time-badge">13:15</span>
-                        <div class="session-content">
-                            <strong>Tecnologia no manejo do DM1</strong>
-                            <span>Em adolescentes.</span>
-                        </div>
-                    </div>
-                    <div class="session-item">
-                        <span class="time-badge">13:35</span>
-                        <div class="session-content">
-                            <strong>Novas ferramentas na abordagem</strong>
-                            <span>Das alterações de crescimento e puberdade.</span>
-                        </div>
-                    </div>
-                    <div class="session-item">
-                        <span class="time-badge">13:55</span>
+                        <span class="time-badge">13:54–14:09</span>
                         <div class="session-content">
                             <strong>Discussão</strong>
-                            <!-- <span>Sobre o tema.</span> -->
                         </div>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">14:10</span>
+                        <span class="time-badge">14:09–14:39</span>
                         <div class="session-content">
-                            <strong>Simpósio Satélite</strong>
-                            <!-- <span>Debate aberto com os participantes.</span> -->
+                            <strong>Simpósio Lilly</strong>
                         </div>
+                        <span class="session-speaker">Alexander Benchimol e Rodrigo Moreira</span>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">14:40</span>
+                        <span class="time-badge">14:39–14:59</span>
                         <div class="session-content">
                             <strong>Coffee break</strong>
-                            <!-- <span>Intervalo entre os blocos.</span> -->
                         </div>
                     </div>
                 </article>
@@ -437,50 +461,65 @@
                 <article class="session-card">
                     <h3>Mesa 4 · Miscelânia</h3>
                     <div class="session-item">
-                        <span class="time-badge">15:00</span>
+                        <span class="time-badge">15:00–15:20</span>
                         <div class="session-content">
-                            <strong>Câncer Diferenciado de Tireoide:</strong>
-                            <span>Precisão Tecnologia e as novas recomendações da ATA.</span>
+                            <strong>Câncer Diferenciado de Tireoide</strong>
+                            <span>Precisão, Tecnologia e as Novas Recomendações da ATA</span>
                         </div>
+                        <span class="session-speaker">Rossana Corbo</span>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">15:20</span>
+                        <span class="time-badge">15:20–15:40</span>
                         <div class="session-content">
-                            <strong>Tecnologia aplicada ao Lipedema:</strong>
-                            <span>Qual o papel do ultrassom no diagnóstico e acompanhamento.</span>
+                            <strong>Tecnologia aplicada ao Lipedema</strong>
+                            <span>Qual o papel do ultrassom no diagnóstico e acompanhamento?</span>
                         </div>
+                        <span class="session-speaker">João Marcello de Araujo Neto</span>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">15:20</span>
+                        <span class="time-badge">15:40–15:55</span>
                         <div class="session-content">
                             <strong>Discussão</strong>
-                            <!-- <span>Sobre o tema.</span> -->
                         </div>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">15:55–16:25</span>
+                        <div class="session-content">
+                            <strong>Simpósio AstraZeneca</strong>
+                        </div>
+                        <span class="session-speaker">Flávia Barbosa</span>
                     </div>
                 </article>
 
                 <article class="session-card">
-                    <h3>Premiações e homenagens</h3>
+                    <h3>Premiações e homenagens · Presidência: Lívia Lugarinho, Priscilla Gil e Latife Salomão</h3>
                     <div class="session-item">
-                        <span class="time-badge">--</span>
+                        <span class="time-badge">16:25–16:55</span>
                         <div class="session-content">
-                            <strong>Prêmio José Schermann</strong>
-                            <span>Prêmio Jayme Rodrigues</span>
+                            <strong>Prêmio José Schermann com aula</strong>
                         </div>
+                        <span class="session-speaker">Monica Gadelha · Homenageada e palestrante</span>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">--</span>
+                        <span class="time-badge">16:55–17:15</span>
                         <div class="session-content">
-                            <strong>Jubileu de 25 anos</strong>
-                            <span>Turma de 2001.</span>
+                            <strong>Prêmio Jayme Rodrigues</strong>
                         </div>
+                        <span class="session-speaker">Jucimar Brasil · Homenageado</span>
                     </div>
                     <div class="session-item">
-                        <span class="time-badge">17:00</span>
+                        <span class="time-badge">17:15–17:35</span>
                         <div class="session-content">
-                            <strong>Coquetel de encerramento</strong>
-                            <span>Encerramento oficial do evento.</span>
+                            <strong>Jubileu da turma de 25 anos</strong>
                         </div>
+                        <span class="session-speaker">Turma 2000</span>
+                    </div>
+                    <div class="session-item">
+                        <span class="time-badge">17:35–17:44</span>
+                        <div class="session-content">
+                            <strong>Encerramento</strong>
+                        </div>
+                        <span class="session-speaker">Diretoria ASSEP-IEDE</span>
                     </div>
                 </article>
             </div>
